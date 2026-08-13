@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第10回 墨田区花火大会 2026</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="#">
+            <img src="img/ロゴ.jpg" alt="墨田区花火" />
+          </a>
+          <span class="official-badge">CM放送中！</span>
+        </div>
+
+        <nav class="nav">
+          <ul>
+            <li>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfJ8BWSlK2DTl-IBSz5Pn72t-YoThpVRvdVBOhgFonK4zTrZQ/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+                >お問い合わせ</a
+              >
+            </li>
+            <li><a href="#faq">Q & A</a></li>
+            <li><a href="sponsor.html">協賛企業様募集</a></li>
+            <li>
+              <a
+                href="https://lin.ee/85BhwZ3"
+                target="_blank"
+                rel="noopener noreferrer"
+                >公式LINE友達追加</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- メインスライドショー (3スライド) -->
+      <section class="hero-slider">
+        <div class="slider-container">
+          <!-- スライド 1: 動画スライド -->
+          <div class="slide active">
+            <video
+              class="slide-media"
+              autoplay
+              loop
+              muted
+              playsinline
+              poster="img/poster.jpg"
+            >
+              <source src="video/課題.mp4" type="video/mp4" />
+              お使いのブラウザは動画タグに対応していません。
+            </video>
+            <div class="slide-content">
+              <p class="subtitle"></p>
+              <h1></h1>
+              <p class="date-hero"></p>
+            </div>
+          </div>
+
+          <!-- スライド 2: 画像スライド -->
+          <div class="slide">
+            <img
+              class="slide-media"
+              src="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?auto=format&fit=crop&w=1600&q=80"
+              alt="圧巻の特大スターマイン"
+            />
+            <div class="slide-content">
+              <p class="subtitle">10,000発の花火が織りなす感動の夜</p>
+              <h1>特大スターマイン & ミュージック花火</h1>
+              <p class="date-hero">音楽と完全にシンクロする最大級の演出</p>
+              <a href="#about" class="btn-primary">大会の見どころを見る</a>
+            </div>
+          </div>
+
+          <!-- スライド 3: 画像スライド -->
+          <div class="slide">
+            <img
+              class="slide-media"
+              src="https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=1600&q=80"
+              alt="夜空に広がる大輪の花火"
+            />
+            <div class="slide-content">
+              <p class="subtitle">7月1日(水)より受付開始</p>
+              <h1>有料観覧席 チケット販売情報</h1>
+              <p class="date-hero">迫力満点の特等席で最高の思い出を</p>
+              <a href="#info" class="btn-primary">チケット・開催情報を確認</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 左右の矢印ボタン -->
+        <button
+          class="slider-arrow prev"
+          id="prevBtn"
+          aria-label="前のスライド"
+        >
+          &#10094;
+        </button>
+        <button
+          class="slider-arrow next"
+          id="nextBtn"
+          aria-label="次のスライド"
+        >
+          &#10095;
+        </button>
+
+        <!-- ドットインジケーター -->
+        <div class="slider-dots" id="dotsContainer">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </section>
+
+      <!-- チケットボタンエリア -->
+      <section class="ticket-section">
+        <a
+          href="ticket.html"
+          class="btn-ticket"
+          target="_blank"
+          rel="noopener noreferrer"
+          >有料観覧席チケットを購入する</a
+        >
+      </section>
+
+      <!-- 更新テキストエリア -->
+      <section class="news-section">
+        <div class="news-box">
+          <h2 class="news-title">最新情報・お知らせ</h2>
+          <ul class="news-list">
+            <li>
+              <span class="news-date">2026.08.10</span>
+              <span class="news-category">重要</span>
+              <a href="#"
+                >【大切なお知らせ】当日の会場周辺における交通規制について</a
+              >
+            </li>
+            <li>
+              <span class="news-date">2026.08.01</span>
+              <span class="news-category">チケット</span>
+              <a href="ticket.html">有料観覧席の当日券販売につきまして</a>
+            </li>
+            <li>
+              <span class="news-date">2026.07.25</span>
+              <span class="news-category">お知らせ</span>
+              <a href="#">屋台・フードエリアの出店マップを公開いたしました</a>
+            </li>
+            <li>
+              <span class="news-date">2026.07.15</span>
+              <span class="news-category">お知らせ</span>
+              <a href="#"
+                >第10回 墨田区花火大会 公式プログラム（PDF）を掲載しました</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3枚画像 Flexbox ギャラリーエリア -->
+      <section class="gallery-section">
+        <h2 class="section-title">過去の開催風景・見どころ</h2>
+        <div class="gallery-flex">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?auto=format&fit=crop&w=600&q=80"
+              alt="花火風景1"
+            />
+            <p class="gallery-caption">特大スターマイン</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80"
+              alt="花火風景2"
+            />
+            <p class="gallery-caption">水中打ち上げ花火</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=600&q=80"
+              alt="花火風景3"
+            />
+            <p class="gallery-caption">グランドフィナーレ</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 詳細情報エリア -->
+      <div class="container">
+        <!-- Q&A (プルダウン形式) セクション -->
+        <section id="faq" class="section">
+          <h2>よくある質問（Q&A）</h2>
+          <div class="faq-container">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span class="q-icon">Q</span>
+                雨天の場合は開催されますか？
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  小雨決行となりますが、荒天・強風の場合は翌日に順延となります。当日の開催可否は公式SNSおよびホームページにてお知らせいたします。
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span class="q-icon">Q</span>
+                当日券の販売はありますか？
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  前売り券で残席がある場合のみ、会場の当日券売り場にて販売を行います。完売した場合は当日券の販売はございませんので、事前の購入をおすすめいたします。
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span class="q-icon">Q</span>
+                駐車場や駐輪場はありますか？
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  会場周辺に専用駐車場はございません。当日は大規模な交通規制も実施されますので、公共交通機関をご利用のうえご来場ください。
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span class="q-icon">Q</span>
+                屋台やフードエリアはありますか？
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  会場内に多数の屋台・キッチンカーを出店予定です。出店エリアの詳細は最新情報ページよりご確認ください。
+                </p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section id="about" class="section">
+          <h2>大会概要</h2>
+          <p>
+            今年で10回目を迎える「墨田区花火大会」。夜空いっぱいに広がる特大スターマインや、最新の技術で音楽とシンクロするミュージュック花火など、約10,000発の花火が夏の思い出を鮮やかに彩ります。
+          </p>
+        </section>
+
+        <section id="info" class="section">
+          <h2>開催情報</h2>
+          <table class="info-table">
+            <tr>
+              <th>日時</th>
+              <td>
+                2026年8月22日(土) 19:00〜20:15<br /><small
+                  >※荒天の場合は翌日に順延</small
+                >
+              </td>
+            </tr>
+            <tr>
+              <th>打ち上げ数</th>
+              <td>約 10,000 発</td>
+            </tr>
+            <tr>
+              <th>会場</th>
+              <td>墨田区 特設会場</td>
+            </tr>
+            <tr>
+              <th>有料観覧席</th>
+              <td>7月1日(水)より一般販売開始</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="access" class="section">
+          <h2>アクセス</h2>
+          <ul class="access-list">
+            <li>
+              <strong>電車でお越しの方：</strong> 浅草線「浅草駅」徒歩10分
+            </li>
+            <li>
+              <strong>バスでお越しの方：</strong>
+              都営バス「花火大会会場前」下車すぐ
+            </li>
+          </ul>
+          <p class="warning">
+            ※当日は会場周辺で大規模な交通規制が行われます。公共交通機関をご利用ください。
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- 右下固定 公式LINE追加バナー -->
+    <a
+      href="https://lin.ee/85BhwZ3"
+      class="line-banner-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="line-banner-content">
+        <span class="line-icon">LINE</span>
+        <div class="line-text">
+          <span class="line-sub">最新情報をお届け！</span>
+          <span class="line-main">公式LINE お友だち追加</span>
+        </div>
+      </div>
+    </a>
+
+    <footer>
+      <p>&copy; 2026 墨田区花火大会 実行委員会</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

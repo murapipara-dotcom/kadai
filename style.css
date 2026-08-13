@@ -1,0 +1,812 @@
+/* ==========================================
+   style.css（全消しして丸ごと貼り付け）
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    MeiYo, sans-serif;
+  background-color: #0b0e14;
+  color: #e0e6ed;
+  line-height: 1.6;
+}
+
+/* ヘッダー */
+.header {
+  width: 100%;
+  padding: 15px 40px;
+  background-color: #121824;
+  border-bottom: 1px solid #202b3c;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+  /* 白背景を消しつつ文字を白く反転させてくっきり表示 */
+  filter: invert(1) grayscale(1);
+  mix-blend-mode: screen;
+}
+
+.official-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(45deg, #ff0055, #ff5050);
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px rgba(255, 0, 85, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  animation: badgePulse 2s infinite ease-in-out;
+}
+
+@keyframes badgePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 0, 85, 0.6);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 18px rgba(255, 0, 85, 0.9),
+      0 0 25px rgba(255, 80, 80, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 0, 85, 0.6);
+  }
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #242e42;
+  color: #ffffff;
+  text-decoration: none;
+  width: 130px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.nav a:hover {
+  background-color: #ffda79;
+  color: #000000;
+}
+
+/* メインスライドショー (表示の競合を修正) */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 1;
+}
+
+.slide-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #ffda79;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.date-hero {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.countdown-container {
+  background: rgba(11, 14, 20, 0.7);
+  backdrop-filter: blur(8px);
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-label {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #ddd;
+}
+.countdown-timer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.countdown-timer div {
+  text-align: center;
+}
+.countdown-timer span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff7171;
+  display: block;
+  line-height: 1;
+}
+.countdown-timer p {
+  font-size: 0.75rem;
+  color: #bbb;
+  margin-top: 4px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #ff4b5c, #ff7171);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(255, 75, 92, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 75, 92, 0.6);
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+  user-select: none;
+}
+
+.slider-arrow:hover {
+  background: rgba(255, 75, 92, 0.8);
+}
+.slider-arrow.prev {
+  left: 20px;
+}
+.slider-arrow.next {
+  right: 20px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+
+.dot.active {
+  background: #ff7171;
+  transform: scale(1.2);
+}
+
+/* チケットエリア */
+.ticket-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.btn-ticket {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff4b5c, #ff7171);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 20px 80px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(255, 75, 92, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.btn-ticket:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(255, 75, 92, 0.7);
+}
+
+/* お知らせ・ギャラリー */
+.news-section,
+.gallery-section {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+.news-box {
+  background-color: #121824;
+  border: 1px solid #202b3c;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.news-title,
+.section-title {
+  font-size: 20px;
+  color: #ffda79;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #ff4b5c;
+  display: inline-block;
+}
+.news-list {
+  list-style: none;
+}
+.news-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 15px;
+}
+.news-list li:last-child {
+  border-bottom: none;
+}
+.news-date {
+  color: #8b949e;
+  font-size: 13px;
+}
+.news-category {
+  background-color: #ff4b5c;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.news-list a {
+  color: #f0f4f8;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.news-list a:hover {
+  color: #ffda79;
+}
+
+.gallery-flex {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.gallery-item {
+  flex: 1;
+  background-color: #121824;
+  border: 1px solid #202b3c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 75, 92, 0.3);
+}
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.gallery-caption {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f0f4f8;
+}
+
+/* メインコンテンツ */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.section {
+  margin-bottom: 50px;
+  background: #121824;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid #202b3c;
+}
+.section h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #ff4b5c;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.info-table th,
+.info-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #202b3c;
+}
+.info-table th {
+  width: 30%;
+  color: #ffda79;
+  white-space: nowrap;
+}
+.access-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.access-list li {
+  margin-bottom: 10px;
+}
+.warning {
+  font-size: 0.9rem;
+  color: #ff7171;
+}
+
+/* LINEバナー & フッター */
+.line-banner-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.line-banner-float:hover {
+  transform: scale(1.05);
+}
+.line-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #06c755;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(6, 199, 85, 0.5);
+  border: 2px solid #ffffff;
+}
+.line-icon {
+  background-color: #ffffff;
+  color: #06c755;
+  font-weight: 900;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 50%;
+}
+.line-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.line-sub {
+  font-size: 10px;
+  opacity: 0.9;
+}
+.line-main {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #080b10;
+  color: #8b949e;
+  font-size: 0.85rem;
+  border-top: 1px solid #202b3c;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .hero-slider {
+    height: 65vh;
+  }
+  .slide-content h1 {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  .btn-ticket {
+    padding: 16px 40px;
+    font-size: 18px;
+  }
+  .gallery-flex {
+    flex-direction: column;
+  }
+  .news-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .info-table th,
+  .info-table td {
+    display: block;
+    width: 100%;
+  }
+  .info-table th {
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+}
+
+/* ==========================================
+   Q&A（アコーディオン・プルダウン）デザイン
+   ========================================== */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.faq-item {
+  background-color: #0b0e14;
+  border: 1px solid #202b3c;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item[open] {
+  border-color: #ff4b5c; /* 開いた時の枠線カラー */
+}
+
+/* 質問タイトル部分（タップエリア） */
+.faq-question {
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  list-style: none; /* デフォルトの矢印アイコンを消す */
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none; /* Chrome/Safari用デフォルト矢印削除 */
+}
+
+/* Qアイコン */
+.q-icon {
+  background-color: #ff4b5c;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* 右側のプラス／マイナス矢印アイコン */
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  color: #ffda79;
+  transition: transform 0.3s ease;
+}
+
+/* 開いた状態のプラス矢印を回転 */
+.faq-item[open] .faq-question::after {
+  content: "−";
+  color: #ff4b5c;
+}
+
+.faq-question:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #ffda79;
+}
+
+/* 回答テキスト部分 */
+.faq-answer {
+  padding: 0 20px 20px 52px;
+  color: #a0aec0;
+  font-size: 15px;
+  line-height: 1.7;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  margin-top: 5px;
+  padding-top: 15px;
+}
+
+/* ==========================================
+   チケット購入ページ (ticket.html) 専用スタイル
+   ========================================== */
+.ticket-page {
+  background-color: #0b0e14;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.ticket-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-button:hover {
+  color: #ffda79;
+}
+
+.stripe-button {
+  background-color: #ffffff;
+  color: #635bff; /* Stripeパープル */
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stripe-button:hover {
+  background-color: #f0f4f8;
+  transform: translateY(-2px);
+}
+
+.ticket-container {
+  max-width: 800px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.ticket-container h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ticket-lead {
+  color: #a0aec0;
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* チケットカードデザイン */
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.ticket {
+  display: block;
+  background-color: #121824;
+  border: 1px solid #202b3c;
+  border-radius: 12px;
+  padding: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.ticket:hover {
+  transform: translateY(-5px);
+  border-color: #ff4b5c;
+  box-shadow: 0 10px 25px rgba(255, 75, 92, 0.3);
+}
+
+.ticket h2 {
+  font-size: 1.4rem;
+  color: #ffda79;
+  margin-bottom: 10px;
+}
+
+.ticket-desc {
+  font-size: 13px;
+  color: #cbd5e0;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* 購入ボタン風表示 */
+.btn-buy {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff4b5c, #ff7171);
+  color: #ffffff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(255, 75, 92, 0.4);
+}
+
+/* 人気バッジ */
+.ticket-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: #ff0055;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 0, 85, 0.5);
+}
+
+/* 下矢印アイコン */
+.down-arrow {
+  fill: #ffda79;
+  width: 40px;
+  height: 40px;
+  margin-top: 40px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
